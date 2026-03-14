@@ -1,0 +1,31 @@
+<h1 class="text-base sm:text-3xl font-bold">
+  Tabela postów
+</h1>
+<div class="flex">
+  <button
+    class="px-4 py-2 cursor-pointer font-semibold rounded-full bg-secondary text-primary disabled:opacity-50"
+    (click)="next()"
+    [disabled]="!posts.value().length">
+    Next
+  </button>
+  <select name="pageSize" aria-label="pageSize"
+    [value]="size()";
+    (change)="pageSize($event)">
+      <option value="10">10</option>
+      <option value="20">20</option>
+      <option value="50">50</option>
+  </select>
+  <button
+    class="px-4 py-2 cursor-pointer font-semibold rounded-full bg-primary text-white disabled:opacity-50"
+    (click)="previous()"
+    [disabled]="!index()">
+    Previous
+  </button>
+</div>
+<div>
+  <app-table
+    [rows]="posts"
+    [config]="columnConfig">
+  </app-table>
+</div>
+

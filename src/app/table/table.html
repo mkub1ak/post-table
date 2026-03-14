@@ -1,0 +1,29 @@
+<table class="table-fixed">
+  <thead>
+    <tr>
+      @for (column of config(); track column.colName) {
+        <th>{{ column.colName }}</th>
+      }
+    </tr>
+  </thead>
+  <tbody>
+    @if (rows().hasValue()) {
+      @if (!rows().value().length) {
+        No table data
+      }
+      @else {
+        @for (row of rows().value(); track $index) {
+          <tr>
+            @for (column of config(); track column.colName) {
+              <td>{{ row[column.objProperty] }}</td>
+            }
+          </tr>
+        }
+      }
+    } @else if (rows().error()) {
+      <div>Could not load table data</div>
+    } @else if (rows().isLoading()) {
+      <div>Loading table data...</div>
+    }
+  </tbody>
+</table>
