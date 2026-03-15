@@ -43,4 +43,4 @@ docker run -d -p 8080:80 post-table
 Once the server is running, open your browser and navigate to `http://localhost:8080/`. 
 
 ## CD Vercel
-If you wish to see the app running online pelase navigate to ``.
+If you wish to see the app running online pelase navigate to `https://post-table-two.vercel.app/`.
